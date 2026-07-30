@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BNZ Agents — AI Operating System for Construction Estimating &amp; Bids</title>
+  <style>
+  :root{
+  --bg:#f7f7f5;
+  --surface:#ffffff;
+  --ink:#1c1e21;
+--muted:#5b5f66;
+--line:#e4e4e1;
+  --accent:#1f2937;
+--accent-2:#3b556b;
+--radius:14px;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+padding:24px 8%;background:var(--surface);border-bottom:1px solid var(--line);
+position:sticky;top:0;z-index:10;
+}
+.logo{font-weight:700;font-size:1.25rem;letter-spacing:.5px;}
+nav a{margin-left:32px;font-weight:500;color:var(--muted);}
+nav a:hover{color:var(--ink);}
+.btn{
+display:inline-block;padding:14px 28px;border-radius:999px;font-weight:600;
+background:var(--accent);color:#fff;transition:background .2s ease;
+}
+.btn:hover{background:var(--accent-2);}
+.btn-outline{background:transparent;border:1px solid var(--ink);color:var(--ink);}
+.btn-outline:hover{background:var(--ink);color:#fff;}
+section{padding:96px 8%;}
+.hero{text-align:center;padding-top:120px;padding-bottom:120px;}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.8rem;color:var(--muted);font-weight:600;}
+h1{font-size:3rem;max-width:800px;margin:24px auto;line-height:1.15;}
+.sub{max-width:600px;margin:0 auto 40px;color:var(--muted);font-size:1.15rem;}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto;}
+.feature-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+padding:40px 32px;text-align:left;
+}
+.feature-card .tag{font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:700;}
+.feature-card h3{font-size:1.5rem;margin:12px 0 12px;}
+.feature-card p{color:var(--muted);margin:0;}
+.section-title{text-align:center;max-width:640px;margin:0 auto 56px;}
+.section-title h2{font-size:2.25rem;margin-bottom:16px;}
+.section-title p{color:var(--muted);}
+  .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:800px;margin:0 auto;}
+.price-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+padding:48px 40px;text-align:center;
+}
+.price-card.featured{border-color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.06);}
+.plan-name{font-weight:700;font-size:1.1rem;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;}
+.price{font-size:3rem;font-weight:700;margin:16px 0;}
+.price span{font-size:1rem;font-weight:500;color:var(--muted);}
+.price-card ul{list-style:none;padding:0;margin:32px 0;text-align:left;}
+.price-card li{padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted);}
+.price-card li:last-child{border-bottom:none;}
+.price-card li::before{content:"✓ ";color:var(--ink);font-weight:700;}
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto;}
+.testimonial-card{
+background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius);
+padding:40px 32px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;color:var(--muted);
+}
+.testimonial-card .quote-mark{font-size:2rem;color:var(--line);}
+.cta-section{text-align:center;background:var(--ink);color:#fff;border-radius:24px;margin:0 8% 96px;padding:80px 40px;}
+.cta-section h2{font-size:2.25rem;margin-bottom:16px;}
+  .cta-section p{color:#c9cbd1;margin-bottom:32px;}
+  .cta-section .btn{background:#fff;color:var(--ink);}
+.cta-section .btn:hover{background:#e5e5e5;}
+  footer{padding:40px 8%;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);}
+@media (max-width:900px){
+.features,.pricing-grid,.testimonials{grid-template-columns:1fr;}
+  h1{font-size:2.25rem;}
+nav a{margin-left:16px;font-size:.9rem;}
+}
+  </style>
+  </head>
+<body>
+<header>
+<div class="logo">BNZ Agents</div>
+    <nav>
+    <a href="#agents">Agents</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    </nav>
+    <a class="btn btn-outline" href="/signup">Start free</a>
+    </header>
+
+    <section class="hero">
+    <div class="eyebrow">Built for construction companies</div>
+<h1>AI operating system for construction estimating and bids</h1>
+<p class="sub">Three specialized AI agents handle your estimates, subcontractor outreach, and project coordination — so your team can focus on building.</p>
+    <a class="btn" href="/signup">Get started free</a>
+</section>
+
+<section id="agents">
+<div class="section-title">
+<h2>Meet your AI team</h2>
+<p>Each agent is purpose-built for a critical part of the bidding and project process.</p>
+    </div>
+    <div class="features">
+    <div class="feature-card">
+    <div class="tag">Estimator</div>
+    <h3>Taylor</h3>
+    <p>Handles every quantity takeoff, pricing calculation, and professional estimate — fast, accurate, and ready to send.</p>
+    </div>
+    <div class="feature-card">
+    <div class="tag">Subcontractor Outreach</div>
+    <h3>Emma</h3>
+    <p>Finds, qualifies, and manages subcontractors for every trade, keeping your bench full and your bids competitive.</p>
+    </div>
+    <div class="feature-card">
+    <div class="tag">Project Manager</div>
+    <h3>Sarah</h3>
+    <p>The main orchestrator — coordinates your team, manages client communication, and keeps every project on schedule.</p>
+    </div>
+    </div>
+    </section>
+
+    <section id="pricing">
+    <div class="section-title">
+    <h2>Simple, transparent pricing</h2>
+    <p>Pick the plan that matches the size of your operation. Upgrade anytime.</p>
+    </div>
+    <div class="pricing-grid">
+    <div class="price-card">
+    <div class="plan-name">Personal</div>
+    <div class="price">$30<span>/month</span></div>
+    <ul>
+    <li>Access to Sarah, Emma &amp; Taylor</li>
+    <li>Unlimited estimates</li>
+    <li>Subcontractor outreach tools</li>
+<li>Email support</li>
+</ul>
+    <a class="btn btn-outline" href="/signup">Start free</a>
+    </div>
+    <div class="price-card featured">
+    <div class="plan-name">Business</div>
+    <div class="price">$60<span>/month</span></div>
+    <ul>
+    <li>Everything in Personal</li>
+<li>Multi-user team access</li>
+<li>Priority subcontractor matching</li>
+<li>Priority support</li>
+    </ul>
+    <a class="btn" href="/signup">Start free</a>
+    </div>
+    </div>
+    </section>
+
+    <section id="testimonials">
+    <div class="section-title">
+    <h2>What builders are saying</h2>
+    <p>Real feedback from teams using BNZ Agents — coming soon.</p>
+</div>
+<div class="testimonials">
+<div class="testimonial-card">
+<div class="quote-mark">"</div>
+<p>Add a testimonial here.</p>
+</div>
+<div class="testimonial-card">
+<div class="quote-mark">"</div>
+<p>Add a testimonial here.</p>
+</div>
+<div class="testimonial-card">
+<div class="quote-mark">"</div>
+<p>Add a testimonial here.</p>
+    </div>
+    </div>
+    </section>
+
+    <div class="cta-section">
+    <h2>Ready to put your bids on autopilot?</h2>
+    <p>Join construction teams using BNZ Agents to estimate faster and win more work.</p>
+<a class="btn" href="/signup">Start free</a>
+    </div>
+
+    <footer>
+    &copy; 2026 BNZ Agents. All rights reserved.
+    </footer>
+</body>
+</html>
