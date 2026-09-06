@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sara — BNZ Grok Bot</title>
+<style>
+:root{--bg:#0b0d10;--card:#171b21;--ink:#eef0f2;--muted:#8b949e;--line:#262b33;--orange:#e07a3d}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:820px;margin:0 auto;height:100%;display:flex;flex-direction:column;padding:16px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700}.muted{color:var(--muted);font-size:.85rem}
+a{color:var(--orange)}#thread{flex:1;overflow:auto;padding:16px 0}
+.msg{margin:10px 0;padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);white-space:pre-wrap}
+.msg.user{background:#1a1512}
+.bar{display:flex;gap:8px;align-items:flex-end}
+textarea{flex:1;background:#0e1116;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:12px;min-height:54px}
+button{background:var(--orange);border:0;color:#fff;padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer}
+input{background:#0e1116;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px}
+.setup{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <div class="brand">Sara · Grok bot</div>
+    <div class="muted">BNZ PM · procurement, RFQs, inbox · saracooper@bnzbuildersinc.com</div>
+  </div>
+  <div>
+    <a href="app.html">Workspace</a> ·
+    <a href="emma.html">Emma</a> ·
+    <a href="taylor.html">Taylor</a>
+  </div>
+</header>
+<div class="setup">
+  <input id="key" type="password" placeholder="xAI API key (stays in this browser)" style="min-width:260px"/>
+  <button id="saveKey" type="button">Save key</button>
+  <span class="muted" id="keyState"></span>
+</div>
+<div id="thread"></div>
+<div class="bar">
+  <textarea id="prompt" placeholder="Ask Sara for an RFQ, quote chase, or job desk update…"></textarea>
+  <button id="send" type="button">Send</button>
+</div>
+</div>
+<script>
+const SYSTEM = `You are Sara Cooper, Project Manager at BNZ Builders INC.
+Email: saracooper@bnzbuildersinc.com
+Phone for the company: 1-332-258-1401
+Office: bnzbuilders1@gmail.com
+Website: https://buildwithbnz.com/
+
+You run procurement and the company inbox for the BNZ Ops Suite product and for BNZ jobs.
+You draft RFQs by trade. You chase quotes. You keep jobs from stalling.
+You do NOT invent bid dollars. You do NOT estimate. Hand numbers to Taylor.
+You do NOT post QuickBooks. Hand books to Emma.
+You do NOT mix customer tenants with BNZ jobs.
+You do NOT publish bonding capacity.
+You do NOT send email unless the user writes SEND or APPROVE.
+Voice: direct, short, field-ready.
+
+When asked for an RFQ, output a send-ready email with subject, scope, due date, prevailing wage ask, COI, exceptions, and 7-day reply window.`;
+const KEY_NAME = "bnz_xai_key";
+const thread = [];
+function add(role, text){
+  thread.push({role, content:text});
+  const div=document.createElement("div");
+  div.className="msg"+(role==="user"?" user":"");
+  div.textContent=(role==="user"?"You\n":"Sara\n")+text;
+  document.getElementById("thread").appendChild(div);
+  div.scrollIntoView();
+}
+function keyState(){
+  document.getElementById("keyState").textContent=localStorage.getItem(KEY_NAME)?"Key saved on this device":"No key — get one at console.x.ai";
+}
+document.getElementById("saveKey").onclick=()=>{
+  const v=document.getElementById("key").value.trim();
+  if(!v){localStorage.removeItem(KEY_NAME);}else{localStorage.setItem(KEY_NAME,v);}
+  document.getElementById("key").value="";
+  keyState();
+};
+async function ask(){
+  const box=document.getElementById("prompt");
+  const text=box.value.trim();
+  if(!text)return;
+  box.value="";
+  add("user", text);
+  const key=localStorage.getItem(KEY_NAME);
+  if(!key){
+    add("assistant","Paste an xAI API key above, tap Save key, then ask again.");
+    return;
+  }
+  const send=document.getElementById("send");
+  send.disabled=true;
+  try{
+    const res=await fetch("https://api.x.ai/v1/chat/completions",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},
+      body:JSON.stringify({
+        model:"grok-3",
+        temperature:0.2,
+        messages:[{role:"system",content:SYSTEM}].concat(thread.slice(-16))
+      })
+    });
+    const data=await res.json();
+    if(!res.ok) throw new Error(data.error&&data.error.message||res.statusText);
+    const out=(data.choices&&data.choices[0]&&data.choices[0].message&&data.choices[0].message.content)||"No reply";
+    add("assistant", out);
+  }catch(err){
+    add("assistant","Grok error: "+err.message);
+  }
+  send.disabled=false;
+}
+document.getElementById("send").onclick=ask;
+document.getElementById("prompt").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();ask();}});
+keyState();
+add("assistant","Sara Cooper. Procurement and inbox.\nGive me trade + job + due date and I will draft the RFQ.\nI will not invent a price. Taylor does numbers. Emma does books.");
+</script>
+</body>
+</html>
