@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BNZ Ops Suite — AI agents for U.S. general contractors</title>
+  <title>BNZ Ops Suite — AI back office for U.S. general contractors</title>
+  <meta name="description" content="Sara, Emma, and Taylor run RFQs, books, subs, and estimates so the PM stays on the job." />
   <style>
-    :root{--bg:#0b0d10;--card:#14171c;--ink:#f4f4f2;--muted:#9aa3ad;--line:#24282f;--orange:#e07a3d;--orange2:#c45f27}
+    :root{--bg:#0b0d10;--card:#14171c;--ink:#f4f4f2;--muted:#9aa3ad;--line:#24282f;--orange:#e07a3d}
     *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
-    a{color:inherit;text-decoration:none}header{display:flex;justify-content:space-between;align-items:center;padding:20px 7%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,13,16,.92)}
-    .logo{font-weight:700;letter-spacing:.04em;font-size:.92rem}nav a{margin-left:22px;color:var(--muted);font-size:.92rem}
+    a{color:inherit;text-decoration:none}header{display:flex;justify-content:space-between;align-items:center;padding:18px 7%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,13,16,.94);z-index:5}
+    .logo{font-weight:700;letter-spacing:.08em;font-size:.82rem}nav a{margin-left:20px;color:var(--muted);font-size:.9rem}
     .btn{display:inline-block;background:var(--orange);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600}
     .btn-ghost{background:transparent;border:1px solid var(--line)}
-    .hero{padding:88px 7% 64px;max-width:980px}h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;margin:14px 0}
-    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
-    .sub{color:var(--muted);font-size:1.12rem;max-width:640px}section{padding:56px 7%}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+    .hero{padding:80px 7% 48px;max-width:980px}h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.06;margin:14px 0}
+    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+    .sub{color:var(--muted);font-size:1.1rem;max-width:640px}section{padding:52px 7%}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
     .tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
     footer{padding:28px 7%;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
-    @media(max-width:800px){.grid{grid-template-columns:1fr}nav{display:none}}
+    @media(max-width:800px){.grid{grid-template-columns:1fr}nav{display:none}.hero{padding-top:48px}}
   </style>
 </head>
 <body>
@@ -25,38 +26,41 @@
   <div class="logo">BNZ OPS SUITE</div>
   <nav>
     <a href="#agents">Agents</a>
-    <a href="emma.html">Emma bot</a>
-    <a href="taylor.html">Taylor bot</a>
+    <a href="app.html">Workspace</a>
+    <a href="sara.html">Sara</a>
+    <a href="emma.html">Emma</a>
+    <a href="taylor.html">Taylor</a>
     <a href="https://buildwithbnz.com/">BNZ Builders</a>
   </nav>
-  <a class="btn" href="taylor.html">Open Taylor</a>
+  <a class="btn" href="app.html">Open workspace</a>
 </header>
 <section class="hero">
   <div class="pill">For general contractors · United States</div>
   <h1>The back office that already runs BNZ — now in your company.</h1>
-  <p class="sub">Sara, Emma, and Taylor handle RFQs, books, subs, and estimates so your PM stays on the job. Emma and Taylor now both run as Grok bots.</p>
+  <p class="sub">Sara drafts RFQs. Emma runs books and subs. Taylor structures takeoffs without reckless lowballs. One workspace. Jobs stay isolated. Bonding stays private.</p>
   <p style="margin-top:28px">
-    <a class="btn" href="taylor.html">Talk to Taylor</a>
-    <a class="btn btn-ghost" href="emma.html" style="margin-left:10px">Talk to Emma</a>
-    <a class="btn btn-ghost" href="app.html" style="margin-left:10px">Open workspace</a>
+    <a class="btn" href="app.html">Open workspace</a>
+    <a class="btn btn-ghost" href="sara.html" style="margin-left:10px">Talk to Sara</a>
+    <a class="btn btn-ghost" href="emma.html" style="margin-left:10px">Emma</a>
+    <a class="btn btn-ghost" href="taylor.html" style="margin-left:10px">Taylor</a>
   </p>
 </section>
 <section id="agents">
-  <h2>Three agents. One workspace.</h2>
+  <h2>Three agents. One company desk.</h2>
   <div class="grid">
-    <div class="card"><div class="tag">Sara</div><h3>Procurement & inbox</h3><p>Drafts RFQs by trade, chases quotes, and keeps bids from stalling.</p></div>
-    <div class="card"><div class="tag">Emma</div><h3>Accountant + subs</h3><p>QuickBooks, job cost, no missing pennies, vendor outreach. <a href="emma.html">Open the Grok bot</a>.</p></div>
-    <div class="card"><div class="tag">Taylor</div><h3>Master estimator</h3><p>Builder-style takeoffs. Cautious numbers. Never a reckless lowball. <a href="taylor.html">Open the Grok bot</a>.</p></div>
+    <div class="card"><div class="tag">Sara · PM / procurement</div><h3>Inbox and RFQs</h3><p>Drafts invitations to bid by trade, tracks due dates, keeps quotes from stalling. Does not invent prices.</p><p><a class="btn" href="sara.html">Open Sara</a></p></div>
+    <div class="card"><div class="tag">Emma · accountant</div><h3>Books and vendors</h3><p>QuickBooks, job cost, W-9s, COIs, no missing pennies. Reports to Sara.</p><p><a class="btn" href="emma.html">Open Emma</a></p></div>
+    <div class="card"><div class="tag">Taylor · estimator</div><h3>Cautious takeoffs</h3><p>Checklists and structure. No bid number from a chat line. Drawings first.</p><p><a class="btn" href="taylor.html">Open Taylor</a></p></div>
   </div>
 </section>
 <section id="pricing">
-  <h2>Simple monthly pricing. Cancel anytime.</h2>
+  <h2>Simple monthly pricing.</h2>
   <div class="grid">
     <div class="card"><h3>Personal</h3><p style="font-size:2rem;margin:8px 0">$30<span style="font-size:1rem;color:var(--muted)"> / mo</span></p><p>Sara + Emma + Taylor. One company workspace.</p></div>
     <div class="card"><h3>Business</h3><p style="font-size:2rem;margin:8px 0">$60<span style="font-size:1rem;color:var(--muted)"> / mo</span></p><p>Multi-user. Shared jobs and vendor lists.</p></div>
-    <div class="card"><h3>Talk to us</h3><p>Call <a href="tel:+13322581401">1-332-258-1401</a><br>or email <a href="mailto:bnzbuilders1@gmail.com">bnzbuilders1@gmail.com</a></p><p>PM desk: saracooper@bnzbuildersinc.com</p></div>
+    <div class="card"><h3>Talk to BNZ</h3><p>Call <a href="tel:+13322581401">1-332-258-1401</a><br>Email <a href="mailto:bnzbuilders1@gmail.com">bnzbuilders1@gmail.com</a></p><p>PM desk: saracooper@bnzbuildersinc.com</p></div>
   </div>
 </section>
-<footer>© 2026 BNZ Builders INC · New York · Serving general contractors nationwide · Bonding details provided privately on request.</footer>
+<footer>© 2026 BNZ Builders INC · Cedarhurst, NY · Serving GCs nationwide · <a href="privacy.html">Privacy</a> · Bonding details provided privately on request.</footer>
 </body>
 </html>
